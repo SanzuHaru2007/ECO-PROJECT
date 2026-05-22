@@ -3,7 +3,7 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 import random
 
-from keyboards.keyboards import main_keyboard, random_fact_keyboard
+from keyboards.keyboards import random_fact_keyboard
 
 facts_list = [
     "🌍 С 1880 года средняя глобальная температура повысилась на 1,1°C. Половина этого потепления произошла за последние 40 лет.",
@@ -34,6 +34,6 @@ def register_facts_handlers(dp):
     @dp.callback_query(F.data == "random_fact")
     async def send_random_fact(callback: CallbackQuery):
         fact = random.choice(facts_list)
-        await callback.message.answer(fact)
         await callback.answer()
+        await callback.message.answer(fact)
 
