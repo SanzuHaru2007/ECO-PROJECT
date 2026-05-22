@@ -4,11 +4,13 @@ from aiogram import Bot, Dispatcher
 from config import TOKEN
 from handlers.start import register_start_handlers
 from handlers.facts import register_facts_handlers
+from handlers.detective import register_detective_handlers
 
 dp = Dispatcher()
 
 register_start_handlers(dp)
 register_facts_handlers(dp)
+register_detective_handlers(dp)
 
 async def main():
     bot = Bot(token=TOKEN)
